@@ -23,8 +23,9 @@ const connectDB = () => {
     });
 
     mysqlConnection.on('error', err => {
-        console.log('DB error:', err);
+        console.log('DB error:', err);        
         if (err) {
+            mysqlConnection.destroy();
             connectDB();
         } else {
             throw err;
