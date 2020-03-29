@@ -16,7 +16,7 @@ const createTestInventory = () => {
 	(3, 1, "Notebooks"),
 	(4, 1, "Clothing"),
 	(5, 1, "Instruments");
-	INSERT INTO items (id, category_id, user_id, name, quantity, unit, image_url, created) VALUES
+	INSERT INTO items (id, category_id, user_id, name, quantity, unit, image_url) VALUES
 	(1, 1, 1, "Stove", 50, "unit(s)", "https://i.imgur.com/tpbexgu.png"),
 	(2, 1, 1, "Washing Machine", 20, "unit(s)", "https://i.imgur.com/2tmhvon.png"),
 	(3, 1, 1, "Blender", 30, "unit(s)", "https://i.imgur.com/gftZZJl.png"),
