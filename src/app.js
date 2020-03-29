@@ -9,11 +9,22 @@ const app = express();
 app.set('port', appConfig.port);
 
 //  Middlewares
+
+//  Last element of whiteList is the front-end development origin.
+const whiteList = [
+    'https://coreinventory.herokuapp.com',
+    'http://coreinventory.herokuapp.com',
+    'http://localhost:3000'
+];
 app.use(cors({
     credentials: true,
-    origin: [
-        'https://coreinventory.herokuapp.com'
-    ]
+    origin: (origin, callback) => {
+        if (whiteList.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
