@@ -1,22 +1,37 @@
 const { dbConfig } = require('./config');
 const mysql = require('mysql');
 
-const { host, user, password, database } = dbConfig;
-mysqlConnection = mysql.createPool({
-    connectionLimit: 10,
-    host,
-    user,
-    password,
-    database,
-    multipleStatements: true
-});
+let mysqlConnection;
 
-mysqlConnection.on('connection', connection => {        
-    console.log('Connected to DB');        
-});
+const connectDB = () => {
+    const { host, user, password, database } = dbConfig;
+    mysqlConnection = mysql.createConnection({    
+        host,
+        user,
+        password,
+        database,
+        multipleStatements: true
+    });
+    
+    mysqlConnection.connect(err => {
+        if (!err) {
+            console.log('Connected to DB');        
+        } else {
+            console.log('DB error:', err);   
+            setTimeout(connectDB(), 2000);
+        }
+    });
 
-mysqlConnection.on('error', err => {
-    console.log(new Date(), 'MySQL error:', err.code);
-});
+    mysqlConnection.on('error', err => {
+        console.log('DB error:', err);
+        if (err) {
+            connectDB();
+        } else {
+            throw err;
+        }
+      });
+};
+
+connectDB();
 
 module.exports = mysqlConnection;
