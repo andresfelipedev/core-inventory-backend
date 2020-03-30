@@ -57,7 +57,7 @@ itemsController.createItem = (req, res) => {
     quantity = parseInt(quantity);     
     itemNameExists(categoryId, req.userId, name, exists => {
         if (!exists) {                                           
-            const query = 'INSERT INTO items (category_id, user_id, name, quantity, unit, image_url, created) VALUES (?, ?, ?, ?, ?, ?, NULL)';
+            const query = 'INSERT INTO items (category_id, user_id, name, quantity, unit, image_url) VALUES (?, ?, ?, ?, ?, ?)';
             mysqlConnection.query(query, [categoryId, req.userId, name, quantity, unit, imageURL], (error, rows, fields) => {
                 !error ? res.status(200).send({ status: 'Item added', id: rows.insertId }) : console.log(error);        
             });        
