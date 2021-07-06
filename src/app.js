@@ -8,12 +8,10 @@ const app = express();
 //  Settings
 app.set('port', appConfig.port);
 
-//  Middlewares
-
 //  Last element of whiteList is the front-end development origin.
 const whiteList = [
-    'https://coreinventory.herokuapp.com',
-    'http://coreinventory.herokuapp.com',
+    'https://coreinventory.vercel.com',
+    'http://coreinventory.vercel.com',
     'http://localhost:3000'
 ];
 app.use(cors({
