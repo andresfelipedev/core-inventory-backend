@@ -1,5 +1,9 @@
 # Core Inventory (back-end)
 
+<br/>
+
+![CoreInventory](https://raw.githubusercontent.com/andresfelipedev/core-inventory-frontend/570554c0aceefdc50d100b8eaac0928ea5248829/src/assets/images/core-inventory-logo.svg)
+
 Core Inventory is a web application for inventory management. This is the back-end for Core Inventory, built with:
 
 * [Node JS](https://nodejs.org/en/) - To use JavaScript on the server side.
@@ -34,7 +38,7 @@ TOKEN_KEY="Token-Auth"
 
 ## Contributing
 
-Create a pull request to contribute this project. Open an issue to discuss major changes.
+Create a pull request to contribute to this project. Open an issue to discuss major changes.
 
 ## License
 
