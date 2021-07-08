@@ -1,8 +1,10 @@
 # Core Inventory (back-end)
 
-<br/>
-
-![CoreInventory](https://raw.githubusercontent.com/andresfelipedev/core-inventory-frontend/570554c0aceefdc50d100b8eaac0928ea5248829/src/assets/images/core-inventory-logo.svg)
+<br>
+<div style="margin: 0 auto; width: 400px;">
+    <img src="https://raw.githubusercontent.com/andresfelipedev/core-inventory-frontend/570554c0aceefdc50d100b8eaac0928ea5248829/src/assets/images/core-inventory-logo.svg" alt="Core Inventory">   
+</div>
+<br>
 
 Core Inventory is a web application for inventory management. This is the back-end for Core Inventory, built with:
 
