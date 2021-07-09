@@ -3,7 +3,7 @@
 <br>
 <br>
 <p align="center">
-    <img src="https://raw.githubusercontent.com/andresfelipedev/core-inventory-frontend/570554c0aceefdc50d100b8eaac0928ea5248829/src/assets/images/core-inventory-logo.svg" alt="Core Inventory" width="400">   
+    <img src="https://raw.githubusercontent.com/andresfelipedev/core-inventory-frontend/e690dffdf35c37acb594f997a5378d2be24570e6/src/assets/images/core-inventory-logo.svg" alt="Core Inventory" width="400">   
 </div>
 <br>
 <br>
