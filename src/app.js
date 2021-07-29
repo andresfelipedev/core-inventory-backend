@@ -10,8 +10,8 @@ app.set('port', appConfig.port);
 
 //  Last element of whiteList is the front-end development origin.
 const whiteList = [
-    'https://coreinventory.vercel.com',
-    'http://coreinventory.vercel.com',
+    'https://coreinventory.netlify.app',
+    'http://coreinventory.netlify.app',
     'http://localhost:3000'
 ];
 app.use(cors({
