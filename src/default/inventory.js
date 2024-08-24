@@ -56,7 +56,7 @@ const defaultInventory = () => {
       }
       createTestInventory();
     } else {
-      console.log("error!!!!! " + error);
+      console.log(error);
     }
   });
 };
