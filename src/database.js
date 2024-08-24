@@ -1,19 +1,18 @@
-const { dbConfig } = require('./config');
-const mysql = require('mysql');
-
+const { dbConfig } = require("./config");
+const mysql = require("mysql2");
 
 const { host, user, password, database } = dbConfig;
 const mysqlConnection = mysql.createPool({
-    connectionLimit: 1,
-    host,
-    user,
-    password,
-    database,
-    multipleStatements: true
+  connectionLimit: 1,
+  host,
+  user,
+  password,
+  database,
+  multipleStatements: true,
 });
 
-mysqlConnection.on('connection', connection => {
-    console.log('Connected to DB');    
+mysqlConnection.on("connection", (connection) => {
+  console.log("Connected to DB");
 });
 
 module.exports = mysqlConnection;

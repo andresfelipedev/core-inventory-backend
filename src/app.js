@@ -12,11 +12,11 @@ app.set("port", appConfig.port);
 const whiteList = [
   "https://coreinventory.netlify.app",
   "http://coreinventory.netlify.app",
+  "http://localhost:3000",
 ];
 app.use(
   cors({
     origin: function (origin, callback) {
-      console.log("Origin:", origin);
       if (whiteList.indexOf(origin) !== -1 || !origin) {
         callback(null, true);
       } else {

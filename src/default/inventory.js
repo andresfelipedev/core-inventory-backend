@@ -1,16 +1,15 @@
-const mysqlConnection = require('../database');
+const mysqlConnection = require("../database");
 
 const deleteItemsAndCategories = () => {
-    const query = `DELETE FROM items WHERE user_id = 1;
+  const query = `DELETE FROM items WHERE user_id = 1;
                    DELETE FROM categories WHERE user_id = 1`;
-    mysqlConnection.query(query, (error, rows, fields) => {
-        if (error) console.log(error);        
-    });
+  mysqlConnection.query(query, (error, rows, fields) => {
+    if (error) console.log(error);
+  });
 };
 
 const createTestInventory = () => {
-    const query = 
-    `INSERT INTO categories (id, user_id, name) VALUES
+  const query = `INSERT INTO categories (id, user_id, name) VALUES
 	(1, 1, "Appliances"),
 	(2, 1, "Phones"),
 	(3, 1, "Notebooks"),
@@ -34,32 +33,32 @@ const createTestInventory = () => {
 	(15, 5, 1, "Trumpet", 14, "unit(s)", "https://res.cloudinary.com/dxjc7e5te/image/upload/v1627839739/core-inventory/default/Trumpet_xpe38q.jpg"),
 	(16, NULL, 1, "Telescope", 17, "unit(s)", "https://res.cloudinary.com/dxjc7e5te/image/upload/v1627839739/core-inventory/default/Telescope_alskc0.jpg"),
 	(17, NULL, 1, "Hose", 11, "unit(s)", "https://res.cloudinary.com/dxjc7e5te/image/upload/v1627839739/core-inventory/default/Hose_lgojhi.jpg"),
-    (18, NULL, 1, "Chair", 48, "unit(s)", "https://res.cloudinary.com/dxjc7e5te/image/upload/v1627839739/core-inventory/default/Chair_nthhgh.jpg")`
-    mysqlConnection.query(query, (error, rows, fields) => {
-        if (error) console.log(error);        
-    });
+    (18, NULL, 1, "Chair", 48, "unit(s)", "https://res.cloudinary.com/dxjc7e5te/image/upload/v1627839739/core-inventory/default/Chair_nthhgh.jpg")`;
+  mysqlConnection.query(query, (error, rows, fields) => {
+    if (error) console.log(error);
+  });
 };
 
 const defaultInventory = () => {
-    /*
+  /*
         For user_id = 1 (testuser):
         If there's no categories or items, create test inventory.
         Otherwise, delete all items and categories and create test inventory.
     */
-    const query = `SELECT COUNT(*) FROM categories WHERE user_id = 1;
+  const query = `SELECT COUNT(*) FROM categories WHERE user_id = 1;
                    SELECT COUNT(*) FROM items WHERE user_id = 1`;
-    mysqlConnection.query(query, (error, rows, fields) => {
-        if (!error) {
-            categoriesRows = rows[0];
-            itemsRows = rows[1];
-            if (categoriesRows.length > 0 || itemsRows.length > 0) {
-                deleteItemsAndCategories();
-            }
-            createTestInventory();
-        } else {
-            console.log(error);            
-        }
-    });
+  mysqlConnection.query(query, (error, rows, fields) => {
+    if (!error) {
+      categoriesRows = rows[0];
+      itemsRows = rows[1];
+      if (categoriesRows.length > 0 || itemsRows.length > 0) {
+        deleteItemsAndCategories();
+      }
+      createTestInventory();
+    } else {
+      console.log("error!!!!! " + error);
+    }
+  });
 };
 
 module.exports = defaultInventory;
